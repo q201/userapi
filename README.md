@@ -15,8 +15,8 @@
 
 
 ```
-git clone <repository-url>
-cd user-api-service
+git clone https://github.com/q201/userapi.git
+cd userapi/src/main/java/com/example/user
 ```
 2. **Build and Run**:
 ```
