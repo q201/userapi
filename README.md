@@ -1,41 +1,111 @@
-# User API Service 
-## This project implements a RESTful API service for user management using Spring Boot and integrates Swagger UI for API documentation.
-## Features
+# User Registration and Fetch API
 
-+ **User Registration**: Endpoint to register a new user.
-+ **Fetch User: Endpoint** to fetch user details by username.
-+ **Exception Handling**: Handles UserNotFoundException with appropriate HTTP responses.
+This project implements a user registration and user details fetch endpoints for a RESTful API using Spring Boot.
+
 ## Technologies Used
-+ **Java**: Version 17
-+ **Spring Boot**: Version 3.3.1
-+ **Swagger**: Integrated for API documentation
- 
-## Setup Instructions
-1. **Clone the repository**:
 
+- Spring Boot
+- Spring Web
+- Spring Data JPA
+- H2 Database
+- Springdoc OpenAPI for Swagger UI
+- JUnit 5
 
-```
-git clone https://github.com/q201/userapi.git
-cd userapi/src/main/java/com/example/user
-```
-2. **Build and Run**:
-```
-mvn clean install
-mvn spring-boot:run
-```
-3. **Access Swagger UI**:
+## Prerequisites
 
-+ Open your browser and go to http://localhost:8080/swagger-ui.html to view and interact with API documentation.
-+ OpenAPI description is available at http://localhost:8080/v3/api-docs.
-## API Endpoints
-+ **POST /api/user/register**: Register a new user.
+- Java 17
+- Maven
 
-```
-curl -X POST http://localhost:8080/api/user/register -H "Content-Type: application/json" -d '{"username": "john.doe", "password": "secret", "email": "john.doe@example.com"}'
-```
-+ **GET /api/user/fetch**: Fetch user details by username.
-```
-curl -X GET 'http://localhost:8080/api/user/fetch?username=john doe'
-```
-## Contributing
-Contributions are welcome. Feel free to fork the repository and submit pull requests.
+## Setup and Run
+
+1. Clone the repository:
+    ```bash
+    git clone <your-repository-url>
+    cd user
+    ```
+
+2. Build the project:
+    ```bash
+    mvn clean install
+    ```
+
+3. Run the application:
+    ```bash
+    mvn spring-boot:run
+    ```
+
+4. Access Swagger UI to test the endpoints:
+    ```url
+    http://localhost:8080/swagger-ui.html
+    ```
+
+## Endpoints
+
+### Register User
+
+- **URL:** `/api/user/register`
+- **Method:** `POST`
+- **Description:** Registers a new user.
+- **Request Body:**
+    ```json
+    {
+        "username": "string",
+        "password": "string",
+        "email": "string"
+    }
+    ```
+- **Response:**
+    - `200 OK` if the user is registered successfully.
+    - `400 Bad Request` if there is an error during registration.
+
+- **cURL Command:**
+    ```bash
+    curl -X POST "http://localhost:8080/api/user/register" -H "Content-Type: application/json" -d '{
+        "username": "john_doe",
+        "password": "password123",
+        "email": "john.doe@example.com"
+    }'
+    ```
+
+### Fetch User Details
+
+- **URL:** `/api/user/fetch`
+- **Method:** `GET`
+- **Description:** Fetches details of a user by username.
+- **Query Parameter:** `username` (string)
+- **Response:**
+    - `200 OK` with user details if the user is found.
+    - `404 Not Found` if the user is not found.
+
+- **cURL Command:**
+    ```bash
+    curl -X GET "http://localhost:8080/api/user/fetch?username=john_doe"
+    ```
+
+## Project Structure
+
+```plaintext
+src
+├── main
+│   ├── java
+│   │   └── com
+│   │       └── example
+│   │           └── user
+│   │               ├── UserApplication.java
+│   │               ├── controller
+│   │               │   └── UserController.java
+│   │               ├── model
+│   │               │   └── UserModel.java
+│   │               ├── repository
+│   │               │   └── UserRepository.java
+│   │               └── service
+│   │                   └── UserService.java
+│   └── resources
+│       ├── application.properties
+│       └── data.sql
+└── test
+    └── java
+        └── com
+            └── example
+                └── user
+                    └── UserApplicationTests.java
