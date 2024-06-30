@@ -20,8 +20,8 @@ This project implements a user registration and user details fetch endpoints for
 
 1. Clone the repository:
     ```bash
-    git clone <your-repository-url>
-    cd user
+    git clone  https://github.com/q201/userapi.git
+    cd  /src/main/java/com/example/user
     ```
 
 2. Build the project:
@@ -34,10 +34,6 @@ This project implements a user registration and user details fetch endpoints for
     mvn spring-boot:run
     ```
 
-4. Access Swagger UI to test the endpoints:
-    ```url
-    http://localhost:8080/swagger-ui.html
-    ```
 
 ## Endpoints
 
