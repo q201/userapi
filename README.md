@@ -109,3 +109,22 @@ src
             └── example
                 └── user
                     └── UserApplicationTests.java
+```
+## Swagger Configuration
+
+The Swagger UI is configured to be available at the following URL:
+
+http://localhost:8080/swagger-ui.html
+
+## License
+
+This project is licensed under the Apache License, Version 2.0.
+
+## Developer
+
+- **Name:** Quasim 
+- **Email:** 202qasim202@gmail.com
+
+## GitHub Repository
+
+[GitHub Repository Link](https://github.com/q201/userapi.git)
